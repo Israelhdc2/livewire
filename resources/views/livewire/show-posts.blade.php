@@ -7,9 +7,8 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
         </h2>
-
-        <h1>Hola Mundo</h1>
-
     </x-slot>
+
+    <h1>Hola Mundo</h1>
 
 </div>
