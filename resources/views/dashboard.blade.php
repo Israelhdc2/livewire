@@ -11,6 +11,7 @@
                 <x-jet-welcome />
             </div> --}}
             @livewire('show-posts')
+            {{-- @livewire('nav.show-posts') --}}
         </div>
     </div>
 </x-app-layout>
