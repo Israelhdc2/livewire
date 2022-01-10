@@ -13,7 +13,7 @@
         <x-table>
 
             <div class="px-6 py-4">
-                <input type="text" wire:model="search">
+                <x-jet-input type="text" placeholder="Escriba lo que quiera buscar" class="w-full" wire:model="search" />
             </div>
 
             <table class="min-w-full divide-y divide-gray-200">
