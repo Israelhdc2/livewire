@@ -9,7 +9,8 @@
         </h2>
     </x-slot>
 
-    <h1>Hola Mundo</h1>
+    {{-- <h1>Hola Mundo</h1> --}}
     {{-- {{$name}} --}}
+    {{$posts}}
 
 </div>
