@@ -14,11 +14,11 @@ class ShowPosts extends Component
     //     $this->titulo = $title;
     // }
 
-    public $name;
+    // public $name;
 
-    public function mount($name){
-        $this->name = $name;
-    }
+    // public function mount($name){
+    //     $this->name = $name;
+    // }
 
     public function render()
     {
