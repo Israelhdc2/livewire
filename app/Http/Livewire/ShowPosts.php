@@ -8,6 +8,8 @@ use Livewire\Component;
 class ShowPosts extends Component
 {
 
+    public $search;
+
     public function render()
     {
         $posts = Post::all();
