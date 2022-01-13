@@ -18,14 +18,41 @@
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" wire:click="order('id')">
                                 ID
+                                @if ($sort == "id")
+                                    @if ($direction == "asc")
+                                        <span class="fas fa-sort-alpha-up-alt float-right mt-1"></span>
+                                    @else
+                                        <span class="fas fa-sort-alpha-down-alt float-right mt-1"></span>
+                                    @endif
+                                @else
+                                    <span class="fas fa-sort float-right mt-1"></span>
+                                @endif
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" wire:click="order('title')">
                                 Title
+                                @if ($sort == "title")
+                                    @if ($direction == "asc")
+                                        <span class="fas fa-sort-alpha-up-alt float-right mt-1"></span>
+                                    @else
+                                        <span class="fas fa-sort-alpha-down-alt float-right mt-1"></span>
+                                    @endif
+                                @else
+                                    <span class="fas fa-sort float-right mt-1"></span>
+                                @endif
                             </th>
-                            <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                            <th scope="col" class="cursor-pointer px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider" wire:click="order('content')">
                                 Content
+                                @if ($sort == "content")
+                                    @if ($direction == "asc")
+                                        <span class="fas fa-sort-alpha-up-alt float-right mt-1"></span>
+                                    @else
+                                        <span class="fas fa-sort-alpha-down-alt float-right mt-1"></span>
+                                    @endif
+                                @else
+                                    <span class="fas fa-sort float-right mt-1"></span>
+                                @endif
                             </th>
                             <th scope="col" class="relative px-6 py-3">
                                 <span class="sr-only">Edit</span>
