@@ -25,7 +25,7 @@
             <x-jet-secondary-button wire:click="$set('open', false)">
                 Cancelar
             </x-jet-secondary-button>
-            <x-jet-danger-button>
+            <x-jet-danger-button wire:click="save">
                 Crear
             </x-jet-danger-button>
         </x-slot>

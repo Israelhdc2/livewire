@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Post;
 use Livewire\Component;
 
 class CreatePost extends Component
@@ -11,6 +12,13 @@ class CreatePost extends Component
 
     public $title;
     public $content;
+
+    public function save(){
+        Post::Create([
+            "title" => $this->title,
+            "content" => $this->content
+        ]);
+    }
 
     public function render()
     {
