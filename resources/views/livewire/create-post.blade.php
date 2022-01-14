@@ -6,15 +6,28 @@
     <x-jet-dialog-modal wire:model="open">
 
         <x-slot name="title">
-
+            Crear Nuevo Post
         </x-slot>
         
         <x-slot name="content">
+            <div class="mb-4">
+                <x-jet-label value="Titulo del Post" />
+                <x-jet-input type="text" class="w-full" />
+            </div>
+            <div class="mb-4">
+                <x-jet-label value="Contenido del Post" />
+                <textarea class="form-control w-full" rows="6" ></textarea>
+            </div>
 
         </x-slot>
 
         <x-slot name="footer">
-
+            <x-jet-secondary-button wire:click="$set('open', false)">
+                Cancelar
+            </x-jet-secondary-button>
+            <x-jet-danger-button>
+                Crear
+            </x-jet-danger-button>
         </x-slot>
 
     </x-jet-dialog-modal>
