@@ -18,6 +18,8 @@ class CreatePost extends Component
             "title" => $this->title,
             "content" => $this->content
         ]);
+        $this->emit('render');
+        $this->reset(["open", "title", "content"]);
     }
 
     public function render()
