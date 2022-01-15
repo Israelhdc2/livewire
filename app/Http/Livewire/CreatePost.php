@@ -13,7 +13,13 @@ class CreatePost extends Component
     public $title;
     public $content;
 
+    protected $rules = [
+        "title" => "required|max:100",
+        "content" => "required|min:100"
+    ];
+
     public function save(){
+        $this->validate();
         Post::Create([
             "title" => $this->title,
             "content" => $this->content
