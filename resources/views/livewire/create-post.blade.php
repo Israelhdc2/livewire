@@ -12,7 +12,7 @@
         <x-slot name="content">
             <div class="mb-4">
                 <x-jet-label value="Titulo del Post" />
-                <x-jet-input type="text" class="w-full" wire:model.defer="title" />
+                <x-jet-input type="text" class="w-full" wire:model="title" />
                 {{-- @error('title')
                     <span>{{$message}}</span>
                 @enderror --}}
