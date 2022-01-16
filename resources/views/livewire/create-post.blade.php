@@ -13,10 +13,16 @@
             <div class="mb-4">
                 <x-jet-label value="Titulo del Post" />
                 <x-jet-input type="text" class="w-full" wire:model.defer="title" />
+                @error('title')
+                    <span>{{$message}}</span>
+                @enderror
             </div>
             <div class="mb-4">
                 <x-jet-label value="Contenido del Post" />
                 <textarea class="form-control w-full" rows="6" wire:model.defer="content" ></textarea>
+                @error('content')
+                    <span>{{$message}}</span>
+                @enderror
             </div>
 
         </x-slot>
