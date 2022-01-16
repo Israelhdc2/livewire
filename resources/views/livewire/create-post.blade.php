@@ -12,18 +12,14 @@
         <x-slot name="content">
             <div class="mb-4">
                 <x-jet-label value="Titulo del Post" />
-                <x-jet-input type="text" class="w-full" wire:model="title" />
-                {{-- @error('title')
-                    <span>{{$message}}</span>
-                @enderror --}}
+                <x-jet-input type="text" class="w-full" wire:model.defer="title" />
+                
                 <x-jet-input-error for="title" />
             </div>
             <div class="mb-4">
                 <x-jet-label value="Contenido del Post" />
                 <textarea class="form-control w-full" rows="6" wire:model.defer="content" ></textarea>
-                {{-- @error('content')
-                    <span>{{$message}}</span>
-                @enderror --}}
+                
                 <x-jet-input-error for="content" />
             </div>
 
@@ -36,6 +32,7 @@
             <x-jet-danger-button wire:click="save">
                 Crear
             </x-jet-danger-button>
+            <span wire:loading wire:target="save">Cargando...</span>
         </x-slot>
 
     </x-jet-dialog-modal>
