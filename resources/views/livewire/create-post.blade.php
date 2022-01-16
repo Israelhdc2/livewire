@@ -29,7 +29,7 @@
             <x-jet-secondary-button wire:click="$set('open', false)">
                 Cancelar
             </x-jet-secondary-button>
-            <x-jet-danger-button wire:click="save">
+            <x-jet-danger-button wire:click="save" wire:loading.remove wire:target="save">
                 Crear
             </x-jet-danger-button>
             <span wire:loading wire:target="save">Cargando...</span>
