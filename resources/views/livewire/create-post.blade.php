@@ -22,6 +22,10 @@
                 
                 <x-jet-input-error for="content" />
             </div>
+            <div >
+                <input type="file" wire:model="image">
+                <x-jet-input-error for="image" />
+            </div>
 
         </x-slot>
 
