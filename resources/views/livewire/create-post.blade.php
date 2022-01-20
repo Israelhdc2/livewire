@@ -17,7 +17,7 @@
             </div>
 
             @if ($image)
-                <img class="mb-4" src="{{$image->temporaryUrl()}}">                
+                <img class="mb-4" src="{{$image->temporaryUrl()}}">
             @endif
 
             <div class="mb-4">
@@ -33,7 +33,7 @@
                 <x-jet-input-error for="content" />
             </div>
             <div >
-                <input type="file" wire:model="image">
+                <input type="file" wire:model="image" id="{{$identificador}}">
                 <x-jet-input-error for="image" />
             </div>
 
@@ -46,7 +46,6 @@
             <x-jet-danger-button wire:click="save" wire:loading.attr="disabled" wire:target="save, image" class="disabled:opacity-25">
                 Crear
             </x-jet-danger-button>
-            {{-- <span wire:loading wire:target="save">Cargando...</span> --}}
         </x-slot>
 
     </x-jet-dialog-modal>

@@ -13,13 +13,17 @@ class CreatePost extends Component
 
     public $open = false;
 
-    public $title, $content, $image;
+    public $title, $content, $image, $identificador;
 
     protected $rules = [
         "title" => "required",
         "content" => "required",
         "image" => "required|image|max:2048"
     ];
+
+    public function mount(){
+        $this->identificador = rand();
+    }
 
     public function save(){
         $this->validate();
@@ -32,8 +36,9 @@ class CreatePost extends Component
             "image" => $image
         ]);
         $this->reset(["open", "title", "content", "image"]);
+        $this->identificador = rand();
         $this->emitTo('show-posts', 'render');
-        $this->emit('alert', 'El post se creo satisfactoriamente');        
+        $this->emit('alert', 'El post se creo satisfactoriamente');
     }
 
     // public function updated($propertyName){
