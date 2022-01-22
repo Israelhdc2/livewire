@@ -10,6 +10,8 @@ class EditPost extends Component
 
     public $post;
 
+    public $open = false;
+
     public function mount(Post $post){
         $this->post = $post;
     }
