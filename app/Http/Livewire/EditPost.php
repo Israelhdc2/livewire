@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -32,11 +33,20 @@ class EditPost extends Component
 
     public function save(){
         $this->validate();
+        if ($this->image) {
+            Storage::delete([$this->post->image]);
+            $this->post->image = $this->image->store('posts');
+        }
         $this->post->save();
         $this->reset(['open', 'image']);
         $this->identificador = rand();
-        $this->emitTo('show-post', 'render');
+        $this->emitTo('show-posts', 'render');
         $this->emit('alert', 'El post se actualizo satisfactoriamente');        
+    }
+
+    public function close(){
+        $this->reset(['open', 'image']);
+        $this->identificador = rand();
     }
 
 }
