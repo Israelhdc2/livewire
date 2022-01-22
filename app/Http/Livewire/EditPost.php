@@ -25,4 +25,13 @@ class EditPost extends Component
     {
         return view('livewire.edit-post');
     }
+
+    public function save(){
+        $this->validate();
+        $this->post->save();
+        $this->reset(['open']);
+        $this->emitTo('show-post', 'render');
+        $this->emit('alert', 'El post se actualizo satisfactoriamente');        
+    }
+
 }
