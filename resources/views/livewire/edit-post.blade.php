@@ -9,12 +9,14 @@
         </x-slot>
         <x-slot name="content">
             <div class="mb-4">
-                <x-jet-label for="Titulo del Post" />
-                <x-jet-input type="text" class="w-full" />
+                <x-jet-label value="Titulo del Post" />
+                <x-jet-input type="text" class="w-full" wire:model="post.title" />
+                <x-jet-input-error for="post.title" />
             </div>
             <div class="mb-4">
-                <x-jet-label for="Contenido del Post" />
-                <textarea rows="6" class="form-control w-full"></textarea>
+                <x-jet-label value="Contenido del Post" />
+                <textarea rows="6" class="form-control w-full" wire:model="post.content"></textarea>
+                <x-jet-input-error for="post.content" />
             </div>
         </x-slot>
         <x-slot name="footer">
