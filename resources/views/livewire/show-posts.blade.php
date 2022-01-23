@@ -11,7 +11,19 @@
         <x-table>
 
             <div class="px-6 py-4 flex items-center">
-                <x-jet-input type="text" placeholder="Escriba lo que quiera buscar" class="flex-1 mr-4" wire:model="search" />
+
+                <div class="flex items-center">
+                    <span>Mostrar</span>
+                    <select class="form-control mx-2" wire:model="cant">
+                        <option value="10">10</option>
+                        <option value="25">25</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <span>entradas</span>
+                </div>
+
+                <x-jet-input type="text" placeholder="Escriba lo que quiera buscar" class="flex-1 mx-4" wire:model="search" />
                 
                 @livewire('create-post')
 
