@@ -8,12 +8,18 @@ use Livewire\Component;
 class ShowPosts extends Component
 {
 
+    public $post;
+
     public $search;
 
     public $sort = 'id';
     public $direction = 'desc';
 
     protected $listeners = ["render"];
+
+    public function mount(){
+        $this->post = new Post();
+    }
 
     public function render()
     {
@@ -36,9 +42,12 @@ class ShowPosts extends Component
         } else {
             $this->sort = $sort;
             $this->direction = "asc";
-        }
-        
+        }       
 
+    }
+
+    public function edit(Post $post){
+        $this->post = $post;
     }
 
 }
