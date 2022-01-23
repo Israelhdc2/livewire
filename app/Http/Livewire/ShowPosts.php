@@ -25,6 +25,12 @@ class ShowPosts extends Component
 
     public $cant = '10';
 
+    protected $queryString = [
+        'cant',
+        'sort',
+        'direction'
+    ];
+
     protected $listeners = ["render"];
 
     protected $rules = [
