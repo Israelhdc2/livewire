@@ -64,26 +64,27 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
 
-                        @foreach ($posts as $post)
+                        @foreach ($posts as $item)
                             
                             <tr>
                                 <td class="px-6 py-4 ">
                                     <div class="text-sm text-gray-900">
-                                        {{$post->id}}
+                                        {{$item->id}}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 ">
                                     <div class="text-sm text-gray-900">
-                                        {{$post->title}}
+                                        {{$item->title}}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 ">
                                     <div class="text-sm text-gray-900">
-                                        {{$post->content}}
+                                        {{$item->content}}
                                     </div>
                                 </td>
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">                                    
-                                    @livewire('edit-post', ['post' => $post], key($post->id))
+                                    {{-- @livewire('edit-post', ['post' => $post], key($post->id)) --}}
+                                    <a class="btn btn-green" wire:click="edit({{$item}})"><i class="fas fa-edit"></i></a>
                                 </td>
                             </tr>
         
