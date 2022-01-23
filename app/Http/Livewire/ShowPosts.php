@@ -4,11 +4,16 @@ namespace App\Http\Livewire;
 
 use App\Models\Post;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 
 class ShowPosts extends Component
 {
 
-    public $post;
+    use WithFileUploads;
+
+    public $open_edit = false;
+
+    public $post, $image, $identificador;
 
     public $search;
 
@@ -17,8 +22,14 @@ class ShowPosts extends Component
 
     protected $listeners = ["render"];
 
+    protected $rules = [
+        "post.title" => "required",
+        "post.content" => "required"
+    ];
+
     public function mount(){
         $this->post = new Post();
+        $this->identificador = rand();
     }
 
     public function render()
@@ -46,8 +57,14 @@ class ShowPosts extends Component
 
     }
 
+    public function close(){
+        $this->reset(['open_edit', 'image']);
+        $this->identificador = rand();
+    }
+
     public function edit(Post $post){
         $this->post = $post;
+        $this->open_edit = true;
     }
 
 }
