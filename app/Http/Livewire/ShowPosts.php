@@ -18,7 +18,7 @@ class ShowPosts extends Component
 
     public $post, $image, $identificador;
 
-    public $search;
+    public $search = '';
 
     public $sort = 'id';
     public $direction = 'desc';
@@ -26,9 +26,10 @@ class ShowPosts extends Component
     public $cant = '10';
 
     protected $queryString = [
-        'cant',
-        'sort',
-        'direction'
+        'cant' => ['except' => '10'],
+        'sort' => ['except' => 'id'],
+        'direction' => ['except' => 'desc'],
+        'search' => ['except' => '']
     ];
 
     protected $listeners = ["render"];
