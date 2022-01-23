@@ -94,8 +94,12 @@
             @else
                 <div class="px-6 py-4">
                     No existe ningun registro coincidente
-                </div>                
+                </div>
             @endif
+
+            <div class="px-6 py-3">
+                {{$posts->links()}}
+            </div>
 
         </x-table>
 
