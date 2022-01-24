@@ -103,4 +103,8 @@ class ShowPosts extends Component
         $this->resetPage();
     }
 
+    public function loadPosts(){
+        $this->readyToLoad = true;
+    }
+
 }
