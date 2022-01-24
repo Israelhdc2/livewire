@@ -28,8 +28,9 @@
             </div>
             <div class="mb-4">
                 <x-jet-label value="Contenido del Post" />
-                <textarea class="form-control w-full" rows="6" wire:model.defer="content" id="editor"></textarea>
-                
+                <div wire:ignore>
+                    <textarea class="form-control w-full" rows="6" wire:model.defer="content" id="editor"></textarea>
+                </div>
                 <x-jet-input-error for="content" />
             </div>
             <div >
