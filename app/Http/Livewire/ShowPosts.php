@@ -25,6 +25,8 @@ class ShowPosts extends Component
 
     public $cant = '10';
 
+    public $readyToLoad = false;
+
     protected $queryString = [
         'cant' => ['except' => '10'],
         'sort' => ['except' => 'id'],
@@ -46,9 +48,13 @@ class ShowPosts extends Component
 
     public function render()
     {
-        $posts = Post::where('title', 'like', '%' . $this->search . '%')
+        if($this->readyToLoad == true){
+            $posts = Post::where('title', 'like', '%' . $this->search . '%')
                     ->orWhere('content', 'like', '%' . $this->search . '%')
                     ->orderBy($this->sort, $this->direction)->paginate($this->cant);
+        }else{
+            $posts = [];
+        }
         return view('livewire.show-posts', compact('posts'));
     }
 
