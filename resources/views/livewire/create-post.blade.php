@@ -22,14 +22,14 @@
 
             <div class="mb-4">
                 <x-jet-label value="Titulo del Post" />
-                <x-jet-input type="text" class="w-full" wire:model.defer="title" />
+                <x-jet-input type="text" class="w-full" wire:model="title" />
                 
                 <x-jet-input-error for="title" />
             </div>
             <div class="mb-4">
                 <x-jet-label value="Contenido del Post" />
                 <div wire:ignore>
-                    <textarea class="form-control w-full" rows="6" wire:model.defer="content" id="editor"></textarea>
+                    <textarea class="form-control w-full" rows="6" wire:model="content" id="editor"></textarea>
                 </div>
                 <x-jet-input-error for="content" />
             </div>
@@ -56,6 +56,11 @@
         <script>
             ClassicEditor
                 .create( document.querySelector( '#editor' ) )
+                .then(function(editor){
+                    editor.model.document.on('change:data', () => {
+                        @this.set('content', editor.getData())
+                    })
+                })
                 .catch( error => {
                         console.error( error );
                 } );
