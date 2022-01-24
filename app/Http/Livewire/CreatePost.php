@@ -49,4 +49,12 @@ class CreatePost extends Component
     {
         return view('livewire.create-post');
     }
+
+    public function updatingOpen(){
+        if ($this->open == false) {
+            $this->reset(['title', 'content', 'image']);
+            $this->identificador = rand();
+        }
+    }
+
 }
