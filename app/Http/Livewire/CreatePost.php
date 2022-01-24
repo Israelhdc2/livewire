@@ -54,6 +54,7 @@ class CreatePost extends Component
         if ($this->open == false) {
             $this->reset(['title', 'content', 'image']);
             $this->identificador = rand();
+            $this->emit('resetCKEditor');
         }
     }
 

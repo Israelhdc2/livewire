@@ -59,7 +59,14 @@
                 .then(function(editor){
                     editor.model.document.on('change:data', () => {
                         @this.set('content', editor.getData())
-                    })
+                    });
+                    Livewire.on('resetCKEditor', function(){
+                        editor.setData('');
+                    });
+                    //SECOND FORMA
+                    // Livewire.on('resetCKEditor', ()=>{
+                    //     editor.setData('');
+                    // });
                 })
                 .catch( error => {
                         console.error( error );
