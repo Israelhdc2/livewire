@@ -29,7 +29,8 @@
 
             </div>
 
-            @if ($posts->count())
+            {{-- @if ($posts->count()) --}}
+            @if (count($posts))
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -103,17 +104,18 @@
                         @endforeach
                     </tbody>
                 </table>
+
+                @if ($posts->hasPages())
+                    <div class="px-6 py-3">
+                        {{$posts->links()}}
+                    </div>
+                @endif
+
             @else
                 <div class="px-6 py-4">
                     No existe ningun registro coincidente
                 </div>
             @endif
-
-            @if ($posts->hasPages())
-                <div class="px-6 py-3">
-                    {{$posts->links()}}
-                </div>
-            @endif            
 
         </x-table>
 
