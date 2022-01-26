@@ -165,7 +165,8 @@
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
             Livewire.on('deletePost', function(id){
-
+            //SEGUNDA FORMA
+            //Livewire.on('deletePost', id => {
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
@@ -176,10 +177,14 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        
+                        Livewire.emitTo('show-posts', 'delete', id);
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
                     }
-                })
-
+                });
             });
         </script>
     @endpush

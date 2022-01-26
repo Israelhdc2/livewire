@@ -34,7 +34,7 @@ class ShowPosts extends Component
         'search' => ['except' => '']
     ];
 
-    protected $listeners = ["render"];
+    protected $listeners = ["render", "delete"];
 
     protected $rules = [
         "post.title" => "required",
@@ -94,7 +94,6 @@ class ShowPosts extends Component
         $this->post->save();
         $this->reset(['open_edit', 'image']);
         $this->identificador = rand();
-        $this->emitTo('show-posts', 'render');
         $this->emit('alert', 'El post se actualizo satisfactoriamente');
         
     }
@@ -105,6 +104,10 @@ class ShowPosts extends Component
 
     public function loadPosts(){
         $this->readyToLoad = true;
+    }
+
+    public function delete(Post $post){
+        $post->delete();
     }
 
 }
