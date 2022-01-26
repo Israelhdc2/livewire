@@ -98,7 +98,7 @@
                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex">
                                     {{-- @livewire('edit-post', ['post' => $post], key($post->id)) --}}
                                     <a class="btn btn-green" wire:click="edit({{$item}})"><i class="fas fa-edit"></i></a>
-                                    <a class="btn btn-red ml-2" ><i class="fas fa-trash"></i></a>
+                                    <a class="btn btn-red ml-2" wire:click="$emit('deletePost', {{$item->id}})"><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
         
@@ -164,7 +164,23 @@
     @push('js')
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script>
-            
+            Livewire.on('deletePost', function(id){
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        
+                    }
+                })
+
+            });
         </script>
     @endpush
 
