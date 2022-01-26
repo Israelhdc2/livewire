@@ -95,9 +95,10 @@
                                         {!! $item->content !!}                                        
                                     </div>
                                 </td>
-                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">                                    
+                                <td class="px-6 py-4 whitespace-nowrap text-sm font-medium flex">
                                     {{-- @livewire('edit-post', ['post' => $post], key($post->id)) --}}
                                     <a class="btn btn-green" wire:click="edit({{$item}})"><i class="fas fa-edit"></i></a>
+                                    <a class="btn btn-red ml-2" ><i class="fas fa-trash"></i></a>
                                 </td>
                             </tr>
         
